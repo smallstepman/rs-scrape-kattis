@@ -14,7 +14,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 struct TestEngine {
+    #[allow(dead_code)]
     platform: String,
+    #[allow(dead_code)]
     problem_id: String,
     func: fn(String) -> String,
     test_cases: HashMap<String, String>,
