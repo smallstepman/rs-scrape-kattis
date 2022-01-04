@@ -8,7 +8,7 @@ fn solution(s: String) -> String {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     for t in TestEngine::new(solution, "thelastproblem".to_string()).await {
-        println!("{}", t);
+        assert!(t);
     }
     Ok(())
 }
@@ -46,7 +46,6 @@ impl TestEngine {
             let input = pre.next().unwrap().inner_html().clone();
             let output = pre.next().unwrap().inner_html().clone();
             test_cases.insert(input.trim().to_string(), output.trim().to_string());
-            println!("{:?}", test_cases);
         }
 
         Ok(test_cases)
