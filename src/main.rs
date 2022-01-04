@@ -59,7 +59,8 @@ impl Iterator for TestEngine {
         match self.test_cases.iter().next() {
             Some((k, v)) => {
                 let result = (self.func)(k.clone()) == *v;
-                self.test_cases.remove(&k.clone());
+                let k = k.clone();
+                self.test_cases.remove(&k);
                 Some(result)
             }
             None => None,
